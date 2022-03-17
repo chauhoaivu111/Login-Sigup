@@ -7,6 +7,8 @@ import Grid from "../components/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import CopyrightIcon from "@material-ui/icons/Copyright";
+import { useSnackbar } from "notistack";
 
 const useStyle = makeStyles(() => ({
   bg: {
@@ -18,24 +20,25 @@ const useStyle = makeStyles(() => ({
   frame_title: {
     justifySelf: "center",
     height: "200px",
-    width: "200px",
-    marginTop: "20%",
+    width: "480px",
+    marginTop: "10%",
   },
   title1: {
     textAlign: "left",
-    fontSize: "60px",
-    color: "blue",
+    fontSize: "80px",
+    color: "#5694F2",
   },
   title2: {
     textAlign: "left",
     fontSize: "20px",
     color: "black",
+    marginTop: "-3%",
   },
   fram_main_input: {
-    height: "500px",
-    width: "500px",
+    height: "450px",
+    width: "400px",
     backgroundColor: "white",
-    marginTop: "18%",
+    marginTop: "9%",
     borderRadius: "15px",
   },
   title_login: {
@@ -44,13 +47,16 @@ const useStyle = makeStyles(() => ({
     marginTop: "20px",
   },
   textform: {
-    width: "400px",
+    width: "350px",
   },
   style_button: {
     backgroundColor: "#629CF4",
-    width: "400px",
+    width: "350px",
     marginTop: "20px",
     borderRadius: "15px",
+    "&:hover": {
+      backgroundColor: "blue",
+    },
   },
   forgetpass: {
     color: "#629CF4",
@@ -62,15 +68,32 @@ const useStyle = makeStyles(() => ({
 
 const Login = (props) => {
   const classes = useStyle();
+
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
+  const handleClick = () => {
+    const key = enqueueSnackbar("incorrect password or Email", {
+      variant: "error",
+      persist: true,
+    });
+
+    // when we're back online
+    props.closeSnackbar(key);
+  };
+
   return (
-    <Helmet title="Home page">
+    <Helmet title="Login">
       <Paper className={classes.bg}>
         <Grid col={2} mdCol={2} smCol={1} gap={20}>
           <div className={classes.frame_title}>
             <Typography className={classes.title1}>
-              Halo
+              Hahalolo
               <Typography className={classes.title2}>
-                Where the world start
+                Bạn thích
+                <h1>đi du lịch?</h1>
+                <h3>Bạn muốn tìm hiểu thông tin về những điểm đến? </h3>
+                Chỉ với vài thao tác, hãy nhanh chóng đăng nhập để trải nghiệm
+                và cảm nhận các tiện ích tuyệt vời của chúng tôi.
               </Typography>
             </Typography>
           </div>
@@ -84,7 +107,6 @@ const Login = (props) => {
                 style={{ textAlign: "center", marginTop: "20px" }}
               >
                 <TextField
-                  //  fullWidth
                   margin="normal"
                   variant="outlined"
                   placeholder="Email"
@@ -93,7 +115,6 @@ const Login = (props) => {
                 ></TextField>
 
                 <TextField
-                  //  fullWidth
                   margin="normal"
                   variant="outlined"
                   placeholder="Mật Khẩu"
@@ -104,7 +125,11 @@ const Login = (props) => {
               </div>
 
               <div style={{ textAlign: "center" }}>
-                <Button className={classes.style_button} variant="contained">
+                <Button
+                  className={classes.style_button}
+                  variant="contained"
+                  onClick={handleClick}
+                >
                   Đăng Nhập
                 </Button>
                 <Typography className={classes.forgetpass}>
@@ -122,6 +147,21 @@ const Login = (props) => {
             </div>
           </Paper>
         </Grid>
+
+        <div
+          style={{
+            textAlign: "center",
+            display: "flex",
+            marginLeft: "45%",
+            marginTop: "13%",
+          }}
+        >
+          <CopyrightIcon />
+
+          <Typography style={{ fontSize: "15px" }}>
+            Hahalolo đã đăng kí bản quyền
+          </Typography>
+        </div>
       </Paper>
     </Helmet>
   );

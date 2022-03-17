@@ -27,6 +27,7 @@ a {
   color: unset;
 }
 
+
 @each $color, $val in $colors {
   .color-#{$color} {
     color: $val;
@@ -89,4 +90,8 @@ a {
 }
 .grid{
   display: grid;
+}
+
+.rendererror{
+  background-color: red;
 }

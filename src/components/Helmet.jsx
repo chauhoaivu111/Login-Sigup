@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Helmet = (props) => {
-  document.title = "Halo - " + props.title;
+  document.title = "Hahalolo - " + props.title;
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
