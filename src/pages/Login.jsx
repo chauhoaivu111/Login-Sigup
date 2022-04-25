@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import CopyrightIcon from "@material-ui/icons/Copyright";
 import { useSnackbar } from "notistack";
 
+
 const useStyle = makeStyles(() => ({
   bg: {
     backgroundImage: `url(${img})`,
@@ -74,7 +75,7 @@ const Login = (props) => {
   const handleClick = () => {
     const key = enqueueSnackbar("incorrect password or Email", {
       variant: "error",
-      persist: true,
+      persist: false,
     });
 
     // when we're back online

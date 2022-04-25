@@ -6,9 +6,11 @@ import { SnackbarProvider } from 'notistack';
 ReactDOM.render(
  <React.StrictMode>
    <SnackbarProvider maxSnack={2}
+   autoHideDuration={500}
     anchorOrigin={{
       vertical: 'top',
       horizontal: 'right',  
+      
   }}
   className="rendererror"
  >

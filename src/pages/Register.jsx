@@ -85,7 +85,7 @@ const Register = (props) => {
 
   const classes = useStyle();
   return (
-    <Helmet title="Login">
+    <Helmet title="Register">
       <Paper className={classes.bg}>
         <Grid col={2} mdCol={2} smCol={1} gap={20}>
           <div className={classes.frame_title}>
@@ -221,7 +221,7 @@ const Register = (props) => {
                       variant="contained"
                       type="submit"
                     >
-                      Đăng Nhập
+                      Đăng Ký
                     </Button>
                   </div>
                 </form>
